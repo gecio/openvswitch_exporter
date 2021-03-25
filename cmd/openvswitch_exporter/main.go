@@ -8,7 +8,9 @@ import (
 	"flag"
 	"log"
 	"net/http"
+	"strings"
 
+	"github.com/digitalocean/go-openvswitch/ovs"
 	"github.com/digitalocean/go-openvswitch/ovsnl"
 	"github.com/digitalocean/openvswitch_exporter/internal/ovsexporter"
 	"github.com/prometheus/client_golang/prometheus"
@@ -19,6 +21,7 @@ func main() {
 	var (
 		metricsAddr = flag.String("metrics.addr", ":9310", "address for Open vSwitch exporter")
 		metricsPath = flag.String("metrics.path", "/metrics", "URL path for surfacing collected metrics")
+		bridges = flag.String("bridges", "br-int,br-tun", "comma separated list of bridges to gather ports from")
 	)
 
 	flag.Parse()
@@ -29,7 +32,9 @@ func main() {
 	}
 	defer c.Close()
 
-	collector := ovsexporter.New(c)
+	ovsc := ovs.New()
+
+	collector := ovsexporter.NewWithPortsCollector(c, ovsc, strings.Split(*bridges,",") )
 	prometheus.MustRegister(collector)
 
 	mux := http.NewServeMux()
