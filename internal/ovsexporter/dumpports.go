@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/digitalocean/go-openvswitch/ovs"
+	"github.com/gecio/go-openvswitch/ovs"
 	"github.com/prometheus/client_golang/prometheus"
 )
 

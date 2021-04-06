@@ -4,6 +4,7 @@ go 1.15
 
 require (
 	github.com/digitalocean/go-openvswitch v0.0.0-20201214180534-ce0f183468d8
+	github.com/gecio/go-openvswitch v0.0.0-20210407082438-313d98859b36 // indirect
 	github.com/google/go-cmp v0.5.4 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
 	github.com/mdlayher/netlink v1.3.2 // indirect
