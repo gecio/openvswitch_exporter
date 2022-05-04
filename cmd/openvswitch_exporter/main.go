@@ -10,7 +10,7 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/gecio/go-openvswitch/ovs"
+	"github.com/digitalocean/go-openvswitch/ovs"
 	"github.com/digitalocean/go-openvswitch/ovsnl"
 	"github.com/digitalocean/openvswitch_exporter/internal/ovsexporter"
 	"github.com/prometheus/client_golang/prometheus"

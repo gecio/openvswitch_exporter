@@ -1,7 +1,7 @@
 package ovsexporter
 
 import (
-	"github.com/gecio/go-openvswitch/ovs"
+	"github.com/digitalocean/go-openvswitch/ovs"
 	"github.com/digitalocean/go-openvswitch/ovsnl"
 	"github.com/prometheus/client_golang/prometheus"
 )
